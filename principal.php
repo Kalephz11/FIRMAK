@@ -4,7 +4,7 @@ include 'config/conexion.php';
 
 // Redirigir si no hay sesión activa
 if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 

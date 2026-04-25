@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </form>
 
 <div class="links" style="margin-top: 15px; text-align: center;">
-    <a href="login.php">← Regresar</a>
+    <a href="index.php">← Regresar</a>
 
 </div>
 
