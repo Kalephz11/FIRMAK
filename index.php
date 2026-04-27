@@ -38,56 +38,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 
-<div class="login-card">
-    <div class="card-header">
+<div class="container">
+    <div class="index-logo">
         <img src="imagenes/firmape.png" alt="Logo FirmaPE">
     </div>
 
-    <div class="card-body">
-        <h2>Bienvenido</h2>
-        <p class="subtitle">Por favor, ingresa tus credenciales</p>
+    <div class="login-content">
+        <h2 style="text-align: center; margin-top: 0;">Bienvenido</h2>
+        <p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 25px;">
+            Por favor, ingresa tus credenciales
+        </p>
 
         <form method="POST" id="loginForm">
             <div class="input-group">
-                <label>Documento de Identidad</label>
+                <label style="font-size: 13px; font-weight: bold; color: #333;">Documento de Identidad</label>
                 <input type="text" name="dni" placeholder="Ingresa tu DNI" required maxlength="8">
             </div>
             
             <div class="input-group">
-                <label>Contraseña</label>
-                <div class="password-wrapper">
+                <label style="font-size: 13px; font-weight: bold; color: #333;">Contraseña</label>
+                <div style="position: relative;">
                     <input type="password" name="password" id="password" placeholder="••••••••" required>
-                    <span class="toggle-password" id="togglePass">Ver</span>
+                    <span class="eye" id="togglePass" style="font-size: 11px; font-weight: bold; color: #4db8ff; text-transform: uppercase;">Ver</span>
                 </div>
             </div>
 
-            <button type="submit" class="btn-login">Ingresar al Sistema</button>
+            <button type="submit">Ingresar al Sistema</button>
         </form>
 
         <?php if (!empty($mensaje)): ?>
-            <div class="alert-error animate-shake">
-                <span class="icon">⚠️</span> <?= $mensaje ?>
+            <div class="alert-error show">
+                <?= $mensaje ?>
             </div>
         <?php endif; ?>
 
-        <div class="card-footer">
+        <div class="links">
             <a href="register.php">Crear cuenta</a>
-            <span class="divider">|</span>
             <a href="recuperar.php">¿Olvidaste tu contraseña?</a>
         </div>
     </div>
 </div>
 
 <div id="overlayBienvenida" class="<?= $success ? 'show' : '' ?>">
-    <div class="welcome-content">
-        <div class="loader-ring"></div>
-        <img src="imagenes/firmape.png" alt="Logo">
-        <h2>¡Acceso Exitoso!</h2>
-        <p>Preparando tu panel de control...</p>
+    <div style="text-align: center;">
+        <div style="font-size: 80px; color: #00ff88; margin-bottom: 20px;">✔</div>
+        <img src="imagenes/firmape.png" alt="Logo" style="width: 150px; margin-bottom: 20px;">
+        <h2 style="color: white; margin: 0;">¡Acceso Exitoso!</h2>
+        <p style="color: #ddd;">Preparando tu panel de control...</p>
     </div>
 </div>
 
 <script>
+// Ver / Ocultar contraseña
 const togglePass = document.getElementById('togglePass');
 const passwordInput = document.getElementById('password');
 
@@ -97,6 +99,7 @@ togglePass.addEventListener('click', () => {
     togglePass.textContent = isPassword ? 'Ocultar' : 'Ver';
 });
 
+// Redirección si todo sale bien
 <?php if ($success): ?>
     setTimeout(() => {
         window.location.href = "principal.php";
