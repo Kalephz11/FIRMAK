@@ -9,7 +9,7 @@ $error = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $dni = trim($_POST['dni']);
-    $nombre = trim($_POST['nombre']); // NUEVO: Captura de nombre
+    $nombre = trim($_POST['nombre']); 
     $correo = trim($_POST['correo']);
     $password = $_POST['password'];
     $confirm = $_POST['confirm'];
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // VALIDACIONES
     if (!preg_match('/^[0-9]{8}$/', $dni)) {
         $error = "dni";
-    } elseif (empty($nombre)) { // NUEVO: Validación de nombre vacío
+    } elseif (empty($nombre)) { 
         $error = "nombre_vacio";
     } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         $error = "email";
@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "exists";
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
-            // MODIFICADO: Se agrega el campo nombre al INSERT
             $stmt = $conexion->prepare("INSERT INTO usuarios (dni, nombre, correo, password) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $dni, $nombre, $correo, $hash);
 
@@ -53,73 +52,68 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta - FirmaPE</title>
     <link rel="stylesheet" href="css/estilos.css">
-    <style>
-        .eye {
-            font-size: 11px !important;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: #4db8ff;
-            cursor: pointer;
-            user-select: none;
-            width: 50px;
-            text-align: right;
-        }
-    </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Crear Cuenta</h2>
+    <div class="index-logo">
+        <img src="imagenes/firmape.png" alt="Logo FirmaPE">
+    </div>
 
-    <form method="POST">
-        <input name="dni" placeholder="DNI (8 dígitos)" required maxlength="8">
-        <input name="nombre" placeholder="Nombre completo" required> 
-        <input name="correo" placeholder="Correo electrónico" required>
+    <div class="login-content">
+        <h2 style="margin-top: 0;">Crear Cuenta</h2>
 
-        <div class="input-group">
-            <input type="password" name="password" id="password" placeholder="Contraseña" required>
-            <span class="eye" id="togglePass">Ver</span>
-        </div>
+        <form method="POST">
+            <input name="dni" placeholder="DNI (8 dígitos)" required maxlength="8">
+            <input name="nombre" placeholder="Nombre completo" required> 
+            <input name="correo" placeholder="Correo electrónico" required>
 
-        <div class="input-group">
-            <input type="password" name="confirm" id="confirm" placeholder="Confirmar contraseña" required>
-            <span class="eye" id="toggleConfirm">Ver</span>
-        </div>
-
-        <?php if (!empty($error)): ?>
-            <div class="alert-error show">
-                <?php
-                if ($error == "dni") echo "DNI debe tener 8 dígitos";
-                elseif ($error == "nombre_vacio") echo "El nombre es obligatorio"; // NUEVO
-                elseif ($error == "email") echo "Correo inválido";
-                elseif ($error == "password") echo "Las contraseñas no coinciden";
-                elseif ($error == "weak") echo "Contraseña insegura";
-                elseif ($error == "exists") echo "El DNI o Correo ya están registrados";
-                elseif ($error == "db") echo "Error técnico en la base de datos";
-                ?>
+            <div class="input-group">
+                <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                <span class="eye" id="togglePass">Ver</span>
             </div>
-        <?php endif; ?>
 
-        <div class="requisitos">
-            <div><span id="min" class="circulo"></span> 8 caracteres</div>
-            <div><span id="mayus" class="circulo"></span> Mayúscula</div>
-            <div><span id="minus" class="circulo"></span> Minúscula</div>
-            <div><span id="num" class="circulo"></span> Número</div>
-            <div><span id="simbolo" class="circulo"></span> Símbolo</div>
+            <div class="input-group">
+                <input type="password" name="confirm" id="confirm" placeholder="Confirmar contraseña" required>
+                <span class="eye" id="toggleConfirm">Ver</span>
+            </div>
+
+            <?php if (!empty($error)): ?>
+                <div class="alert-error show">
+                    <?php
+                    if ($error == "dni") echo "DNI debe tener 8 dígitos";
+                    elseif ($error == "nombre_vacio") echo "El nombre es obligatorio";
+                    elseif ($error == "email") echo "Correo inválido";
+                    elseif ($error == "password") echo "Las contraseñas no coinciden";
+                    elseif ($error == "weak") echo "Contraseña insegura";
+                    elseif ($error == "exists") echo "El DNI o Correo ya están registrados";
+                    elseif ($error == "db") echo "Error técnico en la base de datos";
+                    ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="requisitos">
+                <div><span id="min" class="circulo"></span> 8 caracteres</div>
+                <div><span id="mayus" class="circulo"></span> Mayúscula</div>
+                <div><span id="minus" class="circulo"></span> Minúscula</div>
+                <div><span id="num" class="circulo"></span> Número</div>
+                <div><span id="simbolo" class="circulo"></span> Símbolo</div>
+            </div>
+
+            <div class="barra">
+                <div id="fuerza"></div>
+            </div>
+            <p id="nivel"></p>
+
+            <button id="btnRegistro" type="submit">Registrar</button>
+        </form>
+
+        <div class="links">
+            <a href="index.php">← Volver al Login</a>
         </div>
-
-        <div class="barra">
-            <div id="fuerza"></div>
-        </div>
-        <p id="nivel"></p>
-
-        <button id="btnRegistro" type="submit">Registrar</button>
-    </form>
-
-    <div class="links" style="margin-top: 15px; text-align: center;">
-        <a href="index.php">← Volver al Login</a>
     </div>
 
     <div id="overlayCheck">
@@ -130,6 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 <script>
+// LÓGICA DE VER CONTRASEÑA
 const pass = document.getElementById("password");
 const confirm = document.getElementById("confirm");
 const btn = document.getElementById("btnRegistro");
@@ -156,6 +151,7 @@ document.getElementById("toggleConfirm").onclick = function() {
     }
 };
 
+// LÓGICA DE FUERZA DE CONTRASEÑA
 function validar() {
     let val = pass.value;
     let score = 0;
@@ -194,6 +190,7 @@ function validar() {
 pass.addEventListener("keyup", validar);
 confirm.addEventListener("keyup", validar);
 
+// ANIMACIÓN SHAKE SI NO COINCIDEN
 btn.addEventListener("click", function(e){
     if (pass.value !== confirm.value && pass.value !== "") {
         e.preventDefault();
