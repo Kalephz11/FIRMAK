@@ -145,7 +145,7 @@ button:disabled {
     100% { transform: translateX(0); }
 }
 
-/* ================= MODIFICACIÓN: OVERLAY INNOVADOR DINÁMICO (SIN IMAGEN) ================= */
+/* ================= OVERLAY DINÁMICO (MODIFICADO Y AMPLIADO) ================= */
 #overlayBienvenida {
     position: fixed;
     top: 0; left: 0;
@@ -162,7 +162,20 @@ button:disabled {
     display: flex !important;
 }
 
-/* Cargador de barras tecnológicas */
+/* El Check que te gustaba (Añadido) */
+.check-animado {
+    font-size: 100px;
+    color: #00ff88;
+    margin-bottom: 10px;
+    animation: popIn 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Cargador de barras tecnológicas (Mantenido) */
 .modern-loader {
     display: flex;
     align-items: center;
@@ -191,14 +204,15 @@ button:disabled {
     50% { height: 60px; background: #1a8cff; transform: scaleY(1.2); }
 }
 
-/* Texto Animado Letra por Letra */
+/* Texto Animado (Mantenido con mejoras de color) */
 .loading-text {
     font-family: 'Arial Black', sans-serif;
-    font-size: 26px;
+    font-size: 24px;
     color: #333;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     display: flex;
+    text-align: center;
 }
 
 .letter {
@@ -207,11 +221,10 @@ button:disabled {
 }
 
 @keyframes letter_jump {
-    from { opacity: 0.2; transform: translateY(0); }
+    from { opacity: 0.3; transform: translateY(0); }
     to { opacity: 1; transform: translateY(-10px); color: #1a8cff; }
 }
 
-/* Retrasos para el efecto de ola en el texto */
 .letter:nth-child(1) { animation-delay: 0.1s; }
 .letter:nth-child(2) { animation-delay: 0.2s; }
 .letter:nth-child(3) { animation-delay: 0.3s; }
@@ -222,6 +235,13 @@ button:disabled {
 .letter:nth-child(8) { animation-delay: 0.8s; }
 .letter:nth-child(9) { animation-delay: 0.9s; }
 .letter:nth-child(10) { animation-delay: 1.0s; }
+
+/* Subtextos de espera */
+.texto-espera {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
 
 /* ================= CABECERA Y LINKS (MANTENIDOS) ================= */
 .index-logo {
