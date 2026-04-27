@@ -23,10 +23,10 @@ function enviarCodigo($correo, $codigo) {
         $mail->Port = 587;
 
         // 📧 DATOS DEL CORREO
-        $mail->setFrom('kzapataol11@ucvvirtual.edu.p', 'RECUPERACION DE CONTRASEÑA');
+        $mail->setFrom('kzapataol11@ucvvirtual.edu.pe', 'RECUPERACION DE CONTRASEÑA');
         $mail->addAddress($correo);
 
-        $mail->addReplyTo('TU_CORREO@gmail.com');
+        $mail->addReplyTo('kzapataol11@ucvvirtual.edu.pe');
 
         $mail->isHTML(true);
         $mail->Subject = 'Recuperación de contraseña';
