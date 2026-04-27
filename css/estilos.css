@@ -1,3 +1,4 @@
+/* ================= TUS ESTILOS BASE (COMPLETOS) ================= */
 body {
     margin: 0;
     font-family: Arial;
@@ -20,7 +21,6 @@ body {
     overflow: hidden; 
 }
 
-/* Encapsulamos el contenido del login para que mantenga sus márgenes internos */
 .login-content {
     padding: 30px;
 }
@@ -56,14 +56,12 @@ input {
     font-size: 13px;
     margin-top: 10px;
 }
-
 .requisitos div {
     display: flex;
     align-items: center;
     gap: 8px;
     margin: 4px 0;
 }
-
 .circulo {
     width: 10px;
     height: 10px;
@@ -71,7 +69,6 @@ input {
     background: red;
     display: inline-block;
 }
-
 .ok {
     background: green !important;
 }
@@ -84,7 +81,6 @@ input {
     border-radius: 10px;
     margin: 10px 0;
 }
-
 #fuerza {
     height: 100%;
     width: 0%;
@@ -114,36 +110,14 @@ button {
     font-weight: bold;
     transition: 0.3s;
 }
-
 button:hover {
     background: #1a8cff;
 }
-
 button:disabled {
     background: gray;
 }
 
-/* TOAST */
-#toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 12px 20px;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    opacity: 0;
-    transition: 0.4s;
-    z-index: 999;
-}
-
-.toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-10px);
-}
-
-/* ALERTA CONTRASEÑA */
+/* ALERTA ERROR */
 .alert-error {
     width: 100%;
     margin: 5px 0;
@@ -157,14 +131,12 @@ button:disabled {
     overflow: hidden;
     transition: 0.3s;
 }
-
 .alert-error.show {
     padding: 8px;
     height: auto;
     animation: shake 0.3s;
 }
 
-/* ANIMACIONES */
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
@@ -173,72 +145,84 @@ button:disabled {
     100% { transform: translateX(0); }
 }
 
-.shake {
-    animation: shake 0.3s;
-}
-
-/* OVERLAY CHECK / BIENVENIDA (MODIFICADO PARA PANTALLA COMPLETA) */
-#overlayCheck, #overlayBienvenida {
+/* ================= EL CAMBIO: OVERLAY ACCEDIENDO CON ZOOM ================= */
+#overlayBienvenida {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.98); /* Fondo casi sólido para estilo profesional */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #ffffff; /* Fondo totalmente blanco */
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #333;
-    text-align: center;
-    z-index: 9999;
+    z-index: 99999;
 }
 
-#overlayCheck.show, #overlayBienvenida.show {
+#overlayBienvenida.show {
     display: flex !important;
 }
 
-.check {
-    font-size: 100px;
-    color: #00ff88;
-    margin-bottom: 20px;
+/* El círculo giratorio */
+.loader-ring {
+    width: 160px;
+    height: 160px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #4db8ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
 }
 
-/* CABECERA DE IMAGEN ESTILO PANEL */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* La imagen acercándose (Zoom) */
+.welcome-img {
+    width: 100px;
+    height: auto;
+    z-index: 10;
+    animation: zoomEffect 2s infinite ease-in-out;
+}
+
+@keyframes zoomEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+#overlayBienvenida p {
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ================= CABECERA Y LINKS ================= */
 .index-logo {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    background: white;
 }
-
 .index-logo img {
-    width: 100%; 
+    width: 100%;
     height: auto;
-    display: block;
-    border-radius: 0; 
-    border: none;
-    padding: 0;
-    box-shadow: none;
 }
 
-/* LINKS */
 .links {
     display: flex;
     justify-content: space-between;
     margin-top: 12px;
     font-size: 13px;
 }
-
 .links a {
-    text-decoration: none !important;
+    text-decoration: none;
     color: #4db8ff;
     font-weight: bold;
 }
 
-/* ================= DASHBOARD Y HEADER (Tus estilos originales) ================= */
+/* ================= DASHBOARD Y HEADER ================= */
 .header {
     display: flex;
     justify-content: space-between;
@@ -268,7 +252,6 @@ button:disabled {
     align-items: center;
     transition: 0.3s;
 }
-
 .card:hover {
     transform: translateY(-10px);
 }
