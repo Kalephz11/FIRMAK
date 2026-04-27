@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label style="font-size: 13px; font-weight: bold; color: #333;">Contraseña</label>
                 <div style="position: relative;">
                     <input type="password" name="password" id="password" placeholder="••••••••" required>
-                    <span class="eye" id="togglePass" style="font-size: 11px; font-weight: bold; color: #4db8ff; text-transform: uppercase;">Ver</span>
+                    <span class="eye" id="togglePass">Ver</span>
                 </div>
             </div>
 
@@ -80,12 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 <div id="overlayBienvenida" class="<?= $success ? 'show' : '' ?>">
-    <div style="text-align: center;">
-        <div style="font-size: 80px; color: #00ff88; margin-bottom: 20px;">✔</div>
-        <img src="imagenes/firmape.png" alt="Logo" style="width: 150px; margin-bottom: 20px;">
-        <h2 style="color: white; margin: 0;">¡Acceso Exitoso!</h2>
-        <p style="color: #ddd;">Preparando tu panel de control...</p>
-    </div>
+    <div class="loader-ring"></div>
+    <img src="imagenes/firmape.png" class="welcome-img" alt="Logo">
+    <p>Accediendo...</p>
 </div>
 
 <script>
