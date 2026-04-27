@@ -1,4 +1,4 @@
-/* ================= TUS ESTILOS BASE (COMPLETOS) ================= */
+/* ================= TUS ESTILOS BASE (COMPLETOS - NO QUITADOS) ================= */
 body {
     margin: 0;
     font-family: Arial;
@@ -145,12 +145,12 @@ button:disabled {
     100% { transform: translateX(0); }
 }
 
-/* ================= EL CAMBIO: OVERLAY ACCEDIENDO CON ZOOM ================= */
+/* ================= MODIFICACIÓN: OVERLAY INNOVADOR DINÁMICO (SIN IMAGEN) ================= */
 #overlayBienvenida {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: #ffffff; /* Fondo totalmente blanco */
+    background: #ffffff;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -162,44 +162,68 @@ button:disabled {
     display: flex !important;
 }
 
-/* El círculo giratorio */
-.loader-ring {
-    width: 160px;
-    height: 160px;
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid #4db8ff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    position: absolute;
+/* Cargador de barras tecnológicas */
+.modern-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 60px;
+    margin-bottom: 30px;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.modern-loader span {
+    width: 8px;
+    height: 25px;
+    background: #4db8ff;
+    border-radius: 10px;
+    animation: loader_wave 1.2s infinite ease-in-out;
 }
 
-/* La imagen acercándose (Zoom) */
-.welcome-img {
-    width: 100px;
-    height: auto;
-    z-index: 10;
-    animation: zoomEffect 2s infinite ease-in-out;
+.modern-loader span:nth-child(1) { animation-delay: 0.1s; }
+.modern-loader span:nth-child(2) { animation-delay: 0.2s; }
+.modern-loader span:nth-child(3) { animation-delay: 0.3s; }
+.modern-loader span:nth-child(4) { animation-delay: 0.4s; }
+.modern-loader span:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes loader_wave {
+    0%, 100% { height: 25px; background: #4db8ff; }
+    50% { height: 60px; background: #1a8cff; transform: scaleY(1.2); }
 }
 
-@keyframes zoomEffect {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-#overlayBienvenida p {
-    margin-top: 40px;
-    font-size: 20px;
-    font-weight: bold;
+/* Texto Animado Letra por Letra */
+.loading-text {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 26px;
     color: #333;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: flex;
 }
 
-/* ================= CABECERA Y LINKS ================= */
+.letter {
+    display: inline-block;
+    animation: letter_jump 1s infinite alternate;
+}
+
+@keyframes letter_jump {
+    from { opacity: 0.2; transform: translateY(0); }
+    to { opacity: 1; transform: translateY(-10px); color: #1a8cff; }
+}
+
+/* Retrasos para el efecto de ola en el texto */
+.letter:nth-child(1) { animation-delay: 0.1s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.3s; }
+.letter:nth-child(4) { animation-delay: 0.4s; }
+.letter:nth-child(5) { animation-delay: 0.5s; }
+.letter:nth-child(6) { animation-delay: 0.6s; }
+.letter:nth-child(7) { animation-delay: 0.7s; }
+.letter:nth-child(8) { animation-delay: 0.8s; }
+.letter:nth-child(9) { animation-delay: 0.9s; }
+.letter:nth-child(10) { animation-delay: 1.0s; }
+
+/* ================= CABECERA Y LINKS (MANTENIDOS) ================= */
 .index-logo {
     display: flex;
     justify-content: center;
@@ -222,7 +246,7 @@ button:disabled {
     font-weight: bold;
 }
 
-/* ================= DASHBOARD Y HEADER ================= */
+/* ================= DASHBOARD Y HEADER (MANTENIDOS) ================= */
 .header {
     display: flex;
     justify-content: space-between;
