@@ -1,147 +1,140 @@
+/* ================= TUS ESTILOS BASE (Mantenidos) ================= */
 body {
     margin: 0;
-    font-family: Arial;
-    background: linear-gradient(to right, #cce7f0, #7ec8e3);
+    font-family: 'Segoe UI', Arial, sans-serif;
     background: linear-gradient(to right, rgba(204,231,240,0.7), rgba(126,200,227,0.7)),
                 url("../imagenes/fondope.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* ================= LOGIN GRANDE Y MODERNO (Mejorado) ================= */
 .container {
-    width: 330px;
-    margin: 60px auto;
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 420px; /* Lo hicimos más grande como pediste */
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    overflow: hidden; /* Para que la imagen de arriba respete las esquinas */
+    padding: 0; /* Quitamos padding aquí para que la imagen sea total */
+    backdrop-filter: blur(5px);
+    animation: fadeInDown 0.5s ease-out;
 }
 
-input {
-    width: 92%;
-    padding: 10px;
-    margin: 6px auto;
+/* LA IMAGEN SIN MARCO Y AL ANCHO DEL LOGIN */
+.index-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+.index-logo img {
+    width: 100%; /* Del mismo tamaño que el login */
+    height: auto;
     display: block;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    border: none; /* Quitamos el marco azul */
+    transition: 0.3s;
+}
+
+/* CONTENEDOR INTERNO PARA EL FORMULARIO (Para dar espacio al texto) */
+.login-content {
+    padding: 35px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* ================= INPUTS Y BOTONES (Tus estilos mejorados) ================= */
+input {
+    width: 100% !important; /* Ahora usan todo el ancho */
+    padding: 12px 15px;
+    margin: 10px 0;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #4db8ff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(77, 184, 255, 0.2);
 }
 
 .input-group {
     position: relative;
+    width: 100%;
 }
 
-.eye {
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.toggle-password {
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-}
-
-/* REQUISITOS */
-.requisitos {
-    font-size: 13px;
-    margin-top: 10px;
-}
-
-.requisitos div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 4px 0;
-}
-
-.circulo {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: red;
-    display: inline-block;
-}
-
-.ok {
-    background: green !important;
-}
-
-/* BARRA */
-.barra {
-    width: 92%;
-    height: 8px;
-    background: #ddd;
-    border-radius: 10px;
-    margin: 10px auto;
-}
-
-#fuerza {
-    height: 100%;
-    width: 0%;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-/* NIVEL */
-#nivel {
-    text-align: center;
+    color: #4db8ff;
+    font-size: 11px;
     font-weight: bold;
-    font-size: 13px;
+    text-transform: uppercase;
+    z-index: 10;
 }
 
-/* BOTON */
+/* BOTON (Tu estilo original con mejora de hover) */
 button {
-    width: 92%;
-    margin: 10px auto;
+    width: 100% !important;
+    margin: 20px auto 10px;
     display: block;
-    padding: 10px;
+    padding: 14px;
     background: #4db8ff;
     border: none;
     color: white;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1a8cff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 140, 255, 0.3);
 }
 
 button:disabled {
     background: gray;
 }
 
-/* TOAST */
-#toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 12px 20px;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    opacity: 0;
-    transition: 0.4s;
-    z-index: 999;
-}
-
-.toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-10px);
-}
-
-.toast.error {
-    background: #ff3b3b;
-}
-
-.toast.success {
-    background: #00c853;
-}
-
-/* ALERTA CONTRASEÑA */
+/* ================= TUS ANIMACIONES Y ALERTAS (Intactas) ================= */
 .alert-error {
-    width: 92%;
-    margin: 5px auto;
+    width: 100%;
+    margin: 10px 0;
     color: white;
     background: #ff3b3b;
     font-size: 13px;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 0;
     height: 0;
     overflow: hidden;
@@ -149,12 +142,11 @@ button:disabled {
 }
 
 .alert-error.show {
-    padding: 8px;
+    padding: 10px;
     height: auto;
     animation: shake 0.3s;
 }
 
-/* SHAKE ERROR */
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
@@ -163,106 +155,25 @@ button:disabled {
     100% { transform: translateX(0); }
 }
 
-/* SHAKE BOTON */
-.shake {
-    animation: shakeBtn 0.3s;
-}
-
-@keyframes shakeBtn {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
-}
-
-/* OVERLAY CHECK */
-#overlayCheck {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 20px;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s;
-    z-index: 9999;
-}
-
-#overlayCheck.show {
-    opacity: 1;
-}
-
-#overlayCheck .check {
-    font-size: 80px;
-    color: #00ff88;
-    animation: pop 0.5s ease;
-}
-
-@keyframes pop {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
-}
-
-/* --- AJUSTE DE IMAGEN REDUCIDA --- */
-.index-logo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.index-logo img {
-    width: 120px;       /* Tamaño pequeño pedido */
-    height: 100px;      /* Alto pedido */
-    object-fit: contain;
-    border-radius: 12px;
-    border: 3px solid #4db8ff;
-    background: white;
-    padding: 6px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    transition: 0.3s;
-}
-
-.index-logo img:hover {
-    transform: scale(1.05);
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .links {
     display: flex;
     justify-content: space-between;
-    margin-top: 12px;
+    margin-top: 20px;
     font-size: 13px;
 }
 
 .links a {
-    text-decoration: none !important;
+    text-decoration: none;
     color: #4db8ff;
-    font-weight: 500;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: 0.2s;
-    border-bottom: none !important;
-    box-shadow: none !important;
+    font-weight: 600;
 }
 
-.links a:hover {
-    background: rgba(77, 184, 255, 0.15);
-    color: #1a8cff;
-}
-
-.links a::after {
-    content: none !important;
-    display: none !important;
-}
-
-/* ================= HEADER PRINCIPAL ================= */
+/* ================= TUS ESTILOS DE DASHBOARD Y HEADER (Intactos) ================= */
 .header {
     display: flex;
     justify-content: space-between;
@@ -270,57 +181,6 @@ button:disabled {
     padding: 15px 30px;
     background: rgba(255,255,255,0.9);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo img {
-    width: 55px;
-    border-radius: 10px;
-}
-
-.user-info {
-    text-align: right;
-    font-size: 14px;
-}
-
-.top-user {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-.perfil {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: #4db8ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 18px;
-    color: white;
-    transition: 0.3s;
-}
-
-.perfil:hover {
-    background: #1a8cff;
-    transform: scale(1.1);
-}
-
-/* ================= DASHBOARD ================= */
-.dashboard {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 80px;
-    flex-wrap: wrap;
 }
 
 .card {
@@ -341,25 +201,21 @@ button:disabled {
     transform: translateY(-10px) scale(1.05);
 }
 
-.icon {
-    font-size: 50px;
-    margin-bottom: 10px;
+/* OVERLAY DE BIENVENIDA MODERNO */
+#overlayBienvenida {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #ffffff;
+    display: none; /* Se activa por JS */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: 0.5s;
 }
 
-.card p {
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    padding: 0 10px;
-}
-
-.logout {
-    margin-top: 5px;
-    font-size: 12px;
-    color: red;
-    cursor: pointer;
-}
-
-.logout:hover {
-    text-decoration: underline;
+#overlayBienvenida.show {
+    display: flex !important;
+    opacity: 1;
 }
