@@ -75,62 +75,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cambiar contraseña</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambiar contraseña - FirmaPE</title>
 <link rel="stylesheet" href="css/estilos.css">
-<style>
-    /* Estilo para que el texto Ver/Ocultar se vea bien */
-    .eye {
-        font-size: 11px !important;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: #4db8ff;
-        cursor: pointer;
-        user-select: none;
-        width: 50px;
-        text-align: right;
-    }
-</style>
 </head>
 <body>
 
 <div class="container">
+    <div class="index-logo">
+        <img src="imagenes/firmape.png" alt="Logo FirmaPE">
+    </div>
 
-<h2>Cambiar contraseña</h2>
+    <div class="login-content">
+        <h2 style="margin-top: 0; text-align: center;">Cambiar contraseña</h2>
 
-<form method="POST">
+        <form method="POST">
+            <input name="dni" placeholder="DNI (8 dígitos)" required value="<?= htmlspecialchars($dni) ?>" maxlength="8">
+            <input name="codigo" placeholder="Código enviado al correo" required value="<?= htmlspecialchars($codigo) ?>">
 
-<input name="dni" placeholder="DNI (8 dígitos)" required value="<?= htmlspecialchars($dni) ?>">
-<input name="codigo" placeholder="Código enviado al correo" required value="<?= htmlspecialchars($codigo) ?>">
+            <div class="input-group">
+                <input type="password" name="nueva" id="password" placeholder="Nueva contraseña" required>
+                <span class="eye" id="togglePass">Ver</span>
+            </div>
 
-<div class="input-group">
-    <input type="password" name="nueva" id="password" placeholder="Nueva contraseña" required>
-    <span class="eye" id="togglePass">Ver</span>
-</div>
+            <?php if (!empty($error)): ?>
+            <div class="alert-error show">
+                <?= $error ?>
+            </div>
+            <?php endif; ?>
 
-<?php if (!empty($error)): ?>
-<div class="alert-error show">
-    <?= $error ?>
-</div>
-<?php endif; ?>
+            <button type="submit">Cambiar Contraseña</button>
+        </form>
 
-<button type="submit">Cambiar Contraseña</button>
+        <div class="links" style="margin-top: 15px; text-align: center;">
+            <a href="recuperar.php">← Regresar</a>
+        </div>
+    </div>
 
-</form>
-
-<div class="links" style="margin-top: 15px; text-align: center;">
-    <a href="recuperar.php">← Regresar</a>
-</div>
-
-</div>
-
-<div id="overlayCheck">
-  <div class="check">✔</div>
-  <p>Contraseña cambiada correctamente</p>
-  <p style="font-size: 14px; opacity: 0.8;">Redirigiendo al login...</p>
+    <div id="overlayCheck" class="<?= $success ? 'show' : '' ?>">
+        <div style="text-align: center;">
+            <div class="check">✔</div>
+            <p style="font-size: 18px; font-weight: bold;">Contraseña cambiada correctamente</p>
+            <p style="font-size: 14px; opacity: 0.8;">Redirigiendo al login...</p>
+        </div>
+    </div>
 </div>
 
 <script>
-// 👁 Lógica Ver/Ocultar Texto
+// 👁 Lógica Ver/Ocultar Texto (Tal cual la tenías)
 document.getElementById("togglePass").onclick = function() {
     const p = document.getElementById("password");
     if (p.type === "password") {
@@ -142,7 +134,7 @@ document.getElementById("togglePass").onclick = function() {
     }
 };
 
-// ✔ éxito y redirección al login
+// ✔ éxito y redirección al login (Mantenido)
 <?php if ($success): ?>
 window.onload = () => {
     const overlay = document.getElementById("overlayCheck");
