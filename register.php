@@ -115,11 +115,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="index.php">← Volver al Login</a>
         </div>
     </div>
+</div>
 
-    <div id="overlayCheck">
-        <div class="check">✔</div>
-        <p>¡Registrado correctamente!</p>
-        <p style="font-size: 14px; opacity: 0.8;">Redirigiendo al login...</p>
+<div id="overlayBienvenida" class="<?= isset($_GET['success']) ? 'show' : '' ?>">
+    <div class="modern-loader">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="loading-text">
+        <span class="letter">R</span>
+        <span class="letter">e</span>
+        <span class="letter">g</span>
+        <span class="letter">i</span>
+        <span class="letter">s</span>
+        <span class="letter">t</span>
+        <span class="letter">r</span>
+        <span class="letter">a</span>
+        <span class="letter">d</span>
+        <span class="letter">o</span>
     </div>
 </div>
 
@@ -207,14 +219,9 @@ btn.addEventListener("click", function(e){
 
 <?php if (isset($_GET['success'])): ?>
 <script>
-window.onload = () => {
-    const overlay = document.getElementById("overlayCheck");
-    overlay.classList.add("show");
-
     setTimeout(() => {
         window.location.href = "index.php";
     }, 2500);
-};
 </script>
 <?php endif; ?>
 
