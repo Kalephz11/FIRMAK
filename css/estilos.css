@@ -1,4 +1,4 @@
-/* ================= ESTILOS BASE (Originales) ================= */
+/* ================= ESTILOS BASE ================= */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,155 +14,127 @@ body {
     justify-content: center;
 }
 
-/* ================= LOGIN TAMAÑO ORIGINAL ================= */
+/* ================= CONTENEDOR LOGIN (Original 330px) ================= */
 .container {
-    width: 330px; /* Regresamos a tus 330px originales */
-    margin: 60px auto;
+    width: 330px; 
     background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     box-sizing: border-box;
+    text-align: left;
 }
 
-/* ================= IMAGEN REDUCIDA BASTANTE ================= */
+/* ================= IMAGEN REDUCIDA Y ENMARCADA ================= */
 .index-logo {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     width: 100%;
 }
 
 .index-logo img {
-    width: 100px; /* <--- Aquí la reduje bastante (antes era 170px o más) */
-    height: auto;
+    width: 130px;      /* Tamaño reducido para que no salga gigante */
+    height: 80px;      /* Alto controlado */
     object-fit: contain;
     border-radius: 8px;
-    /* Si quieres que no tenga el borde azul grueso, comenta la siguiente línea */
-    border: 2px solid #4db8ff; 
+    border: 2px solid #4db8ff; /* Borde azul de tu imagen de referencia */
     background: white;
-    padding: 4px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* ================= INPUTS Y BOTÓN (Alineados al 92% como tenías) ================= */
+/* ================= FORMULARIO E INPUTS ================= */
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
 input {
-    width: 92%;
+    width: 100%;
     padding: 10px;
-    margin: 6px auto;
+    margin: 8px 0;
     display: block;
-    border-radius: 8px;
+    border-radius: 6px;
     border: 1px solid #ccc;
+    box-sizing: border-box; /* Para que coincida el ancho exacto */
 }
 
-.input-group {
+.password-container {
     position: relative;
     width: 100%;
 }
 
-.eye {
+.toggle-password {
     position: absolute;
-    right: 25px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    color: #4db8ff;
     font-size: 11px;
     font-weight: bold;
-    color: #4db8ff;
+    text-transform: uppercase;
 }
 
-/* REQUISITOS, BARRA Y NIVEL */
-.requisitos {
-    font-size: 13px;
-    margin-top: 10px;
-    padding: 0 15px;
-}
-
-.requisitos div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 4px 0;
-}
-
-.circulo {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: red;
-}
-
-.ok { background: green !important; }
-
-.barra {
-    width: 92%;
-    height: 8px;
-    background: #ddd;
-    border-radius: 10px;
-    margin: 10px auto;
-}
-
-#fuerza {
-    height: 100%;
-    width: 0%;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-#nivel {
-    text-align: center;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-/* BOTÓN ORIGINAL */
+/* ================= BOTÓN ================= */
 button {
-    width: 92%;
-    margin: 15px auto;
-    display: block;
-    padding: 10px;
+    width: 100%;
+    padding: 12px;
     background: #4db8ff;
     border: none;
     color: white;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
 }
 
-/* ALERTAS Y LINKS */
+button:hover { background: #1a8cff; }
+
+/* ================= ALERTAS Y LINKS ================= */
 .alert-error {
-    width: 92%;
-    margin: 5px auto;
-    color: white;
+    width: 100%;
     background: #ff3b3b;
+    color: white;
     font-size: 13px;
     text-align: center;
     border-radius: 6px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.alert-error.show {
+    margin-top: 10px;
     padding: 8px;
-    height: auto;
+    box-sizing: border-box;
 }
 
 .links {
     display: flex;
     justify-content: space-between;
-    margin-top: 12px;
+    margin-top: 15px;
     font-size: 12px;
-    padding: 0 10px;
 }
 
 .links a {
     text-decoration: none;
     color: #4db8ff;
+    font-weight: bold;
 }
 
-/* DASHBOARD MANTENIDO */
-.card {
-    width: 220px;
-    height: 180px;
-    background: white;
-    border-radius: 15px;
+/* ================= OVERLAY BIENVENIDA ================= */
+#overlayBienvenida {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    z-index: 1000;
+    visibility: hidden; opacity: 0;
+    transition: 0.5s ease-in-out;
 }
+
+#overlayBienvenida.show { visibility: visible; opacity: 1; }
+
+.welcome-logo-container { width: 120px; margin-bottom: 20px; }
+.welcome-logo-container img { width: 100%; height: auto; }
+.welcome-text { color: #333; font-size: 26px; margin: 0; }
+.welcome-subtext { color: #666; margin-top: 10px; }
