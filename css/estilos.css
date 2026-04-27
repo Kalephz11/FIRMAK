@@ -1,4 +1,4 @@
-/* ================= ESTILOS BASE ================= */
+/* ================= ESTILOS BASE (Originales) ================= */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,17 +14,18 @@ body {
     justify-content: center;
 }
 
-/* ================= CONTENEDOR ULTRA ANGOSTO ================= */
+/* ================= LOGIN TAMAÑO ORIGINAL ================= */
 .container {
-    width: 260px; /* Reducido al máximo para que no se vea ancho */
+    width: 330px; /* Regresamos a tus 330px originales */
+    margin: 60px auto;
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     box-sizing: border-box;
 }
 
-/* ================= LOGO (120px x 100px aprox) ================= */
+/* ================= IMAGEN REDUCIDA BASTANTE ================= */
 .index-logo {
     display: flex;
     justify-content: center;
@@ -33,85 +34,59 @@ body {
 }
 
 .index-logo img {
-    width: 120px;      /* ANCHO PEDIDO */
-    height: 100px;     /* ALTO PEDIDO */
-    object-fit: contain; /* Evita que la imagen se deforme */
-    transition: 0.3s;
+    width: 100px; /* <--- Aquí la reduje bastante (antes era 170px o más) */
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    /* Si quieres que no tenga el borde azul grueso, comenta la siguiente línea */
+    border: 2px solid #4db8ff; 
+    background: white;
+    padding: 4px;
 }
 
-/* ================= FORMULARIO COMPACTO ================= */
-h2 {
-    text-align: center;
-    color: #333;
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-form {
-    width: 100%;
+/* ================= INPUTS Y BOTÓN (Alineados al 92% como tenías) ================= */
+input {
+    width: 92%;
+    padding: 10px;
+    margin: 6px auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 .input-group {
     position: relative;
     width: 100%;
-    margin-bottom: 8px;
-}
-
-input {
-    width: 100% !important; 
-    padding: 10px 12px;
-    display: block;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    box-sizing: border-box; 
-    font-size: 14px;
 }
 
 .eye {
     position: absolute;
-    right: 12px;
+    right: 25px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #4db8ff;
-    font-size: 10px;
-    font-weight: bold;
-}
-
-/* ================= BOTÓN (MISMO ANCHO QUE INPUT) ================= */
-button {
-    width: 100% !important;
-    padding: 11px;
-    background: #4db8ff;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #1a8cff;
-}
-
-/* ================= REQUISITOS Y BARRA ================= */
-.requisitos {
     font-size: 11px;
-    margin-top: 8px;
+    font-weight: bold;
+    color: #4db8ff;
+}
+
+/* REQUISITOS, BARRA Y NIVEL */
+.requisitos {
+    font-size: 13px;
+    margin-top: 10px;
+    padding: 0 15px;
 }
 
 .requisitos div {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin: 3px 0;
+    gap: 8px;
+    margin: 4px 0;
 }
 
 .circulo {
-    width: 7px;
-    height: 7px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: red;
 }
@@ -119,11 +94,11 @@ button:hover {
 .ok { background: green !important; }
 
 .barra {
-    width: 100%;
-    height: 6px;
+    width: 92%;
+    height: 8px;
     background: #ddd;
     border-radius: 10px;
-    margin: 8px 0;
+    margin: 10px auto;
 }
 
 #fuerza {
@@ -135,35 +110,48 @@ button:hover {
 
 #nivel {
     text-align: center;
-    font-size: 11px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* BOTÓN ORIGINAL */
+button {
+    width: 92%;
+    margin: 15px auto;
+    display: block;
+    padding: 10px;
+    background: #4db8ff;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
     font-weight: bold;
 }
 
-/* ================= ALERTAS Y LINKS ================= */
+/* ALERTAS Y LINKS */
 .alert-error {
-    width: 100%;
+    width: 92%;
+    margin: 5px auto;
     color: white;
     background: #ff3b3b;
-    font-size: 11px;
+    font-size: 13px;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
     transition: 0.3s;
 }
 
 .alert-error.show {
-    padding: 6px;
+    padding: 8px;
     height: auto;
-    margin-top: 8px;
 }
 
 .links {
     display: flex;
-    flex-direction: column; 
-    align-items: center;
-    gap: 8px;
-    margin-top: 15px;
-    font-size: 11px;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 12px;
+    padding: 0 10px;
 }
 
 .links a {
@@ -171,20 +159,10 @@ button:hover {
     color: #4db8ff;
 }
 
-/* ================= DASHBOARD / HEADER ================= */
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
+/* DASHBOARD MANTENIDO */
 .card {
-    width: 180px;
-    height: 140px;
+    width: 220px;
+    height: 180px;
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
 }
