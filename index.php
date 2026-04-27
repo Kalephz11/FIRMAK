@@ -33,88 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Login - FirmaPE</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" href="imagenes/favicon.png">
-    <style>
-        .password-container {
-            position: relative;
-            width: 100%;
-        }
-
-        .password-container input {
-            width: 100%;
-            padding-right: 60px; /* Más espacio para la palabra "OCULTAR" */
-            box-sizing: border-box;
-        }
-
-        .toggle-password {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #4db8ff; /* Color temático */
-            font-size: 11px; /* Tamaño tipo etiqueta */
-            font-weight: bold;
-            text-transform: uppercase;
-            user-select: none;
-            z-index: 10;
-            letter-spacing: 1px;
-        }
-
-        .toggle-password:hover {
-            color: #1a8cff;
-        }
-
-        /* --- OVERLAY DE BIENVENIDA --- */
-        #overlayBienvenida {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            z-index: 1000;
-            visibility: hidden; opacity: 0;
-            transition: 0.5s ease-in-out;
-        }
-        #overlayBienvenida.show {
-            visibility: visible; opacity: 1;
-        }
-
-        .welcome-logo-container {
-            width: 150px; 
-            margin-bottom: 20px;
-            animation: popIn 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-        }
-
-        .welcome-logo-container img {
-            width: 100%;
-            height: auto;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        h2.welcome-text {
-            color: #333;
-            font-size: 28px;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        p.welcome-subtext {
-            color: #666;
-            margin-top: 10px;
-        }
-    </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="login-logo">
+    <div class="index-logo">
         <img src="imagenes/firmape.png" alt="Logo Empresa">
     </div>
 
@@ -158,11 +84,7 @@ const passwordInput = document.getElementById('password');
 
 togglePass.addEventListener('click', () => {
     const isPassword = passwordInput.getAttribute('type') === 'password';
-    
-    // Cambiar tipo de input
     passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-    
-    // Cambiar texto
     togglePass.textContent = isPassword ? 'Ocultar' : 'Ver';
 });
 
@@ -170,7 +92,6 @@ togglePass.addEventListener('click', () => {
 window.onload = () => {
     const overlay = document.getElementById("overlayBienvenida");
     overlay.classList.add("show");
-
     setTimeout(() => {
         window.location.href = "principal.php";
     }, 2000);
