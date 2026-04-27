@@ -211,13 +211,13 @@ button:disabled {
     100% { transform: scale(1); }
 }
 
-.login-logo {
+.index-logo {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
 }
 
-.login-logo img {
+.index-logo img {
     width: 170px;
     height: 90px;
     object-fit: contain;
@@ -229,7 +229,7 @@ button:disabled {
     transition: 0.3s;
 }
 
-.login-logo img:hover {
+.index-logo img:hover {
     transform: scale(1.05);
 }
 
