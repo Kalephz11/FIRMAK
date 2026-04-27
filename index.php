@@ -80,9 +80,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 <div id="overlayBienvenida" class="<?= $success ? 'show' : '' ?>">
-    <div class="loader-ring"></div>
-    <img src="imagenes/firmape.png" class="welcome-img" alt="Logo">
-    <p>Accediendo...</p>
+    <div class="modern-loader">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="loading-text">
+        <span class="letter">A</span>
+        <span class="letter">c</span>
+        <span class="letter">c</span>
+        <span class="letter">e</span>
+        <span class="letter">d</span>
+        <span class="letter">i</span>
+        <span class="letter">e</span>
+        <span class="letter">n</span>
+        <span class="letter">d</span>
+        <span class="letter">o</span>
+    </div>
 </div>
 
 <script>
